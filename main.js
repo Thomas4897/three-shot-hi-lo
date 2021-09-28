@@ -5,7 +5,6 @@ let guess = Number(prompt("> "));
 console.log("");
 
 const random = Number(Math.ceil(Math.random() * 100));
-// console.log(random);
 
 let count = 0;
 
@@ -14,11 +13,11 @@ while (guess !== random) {
 		break;
 	} else if (guess < random) {
 		console.log("Sorry, too low! Guess again.");
-		guess = prompt("> ");
+		guess = Number(prompt("> "));
 		console.log("");
 	} else if (guess > random) {
 		console.log("Sorry, too high! Guess again.");
-		guess = prompt("> ");
+		guess = Number(prompt("> "));
 		console.log("");
 	} else {
 		break;
@@ -34,6 +33,6 @@ if (guess === random) {
 	} else if (guess < random) {
 		console.log("Sorry, too low! I was thinking of", random);
 	} else {
-		console.log("Congratulations, " + guess + " is correct!");
+		console.log("Error");
 	}
 }
