@@ -4,16 +4,13 @@ console.log("I'm thinking of a number bewtween 1 and 100. Try to guess it.");
 let guess = Number(prompt("> "));
 console.log("");
 
-const random = Number(Math.ceil(Math.random() * 1));
-console.log(random);
+const random = Number(Math.ceil(Math.random() * 100));
+// console.log(random);
 
 let count = 0;
 
 while (guess !== random) {
-	if (guess === random && count > 1) {
-		console.log("Sorry too low. I was thinking of " + random + ".");
-		break;
-	} else if (count > 2) {
+	if (count > 1) {
 		break;
 	} else if (guess < random) {
 		console.log("Sorry, too low! Guess again.");
@@ -24,7 +21,7 @@ while (guess !== random) {
 		guess = prompt("> ");
 		console.log("");
 	} else {
-		console.log("Congratulations, " + guess + " is correct!");
+		break;
 	}
 
 	count = count + 1;
@@ -32,5 +29,11 @@ while (guess !== random) {
 if (guess === random) {
 	console.log("Congratulations, " + guess + " is correct!");
 } else {
-	console.log("");
+	if (guess > random) {
+		console.log("Sorry, too high! I was thinking of", random);
+	} else if (guess < random) {
+		console.log("Sorry, too low! I was thinking of", random);
+	} else {
+		console.log("Congratulations, " + guess + " is correct!");
+	}
 }
